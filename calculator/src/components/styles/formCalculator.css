@@ -1,0 +1,15 @@
+.wraper-calculator {
+    width: 20rem;
+    height: 35rem;
+    background: #1E1E1E;
+}
+
+.wrapper-numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.wraper-operators{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

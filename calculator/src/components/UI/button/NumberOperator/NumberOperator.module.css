@@ -1,0 +1,24 @@
+.numberOperator{
+    width: 2rem;
+    height: 2rem;
+
+    margin: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ffffff;
+    border-radius: 5x;
+
+    color: #ffffff;
+    cursor: pointer;
+
+    background: #1E1E1E;
+}
+
+.numberOperator:hover{
+    color: #1E1E1E;
+
+    background: #ffffff;
+}
