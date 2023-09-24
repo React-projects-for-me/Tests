@@ -17,41 +17,49 @@ function FormCalculator() {
     { number: "9" },
     { number: "0" },
   ];
-  const operators = [
-    { operator: "+" },
-    { operator: "-" },
-    { operator: "*" },
-    { operator: "/" },
-    { operator: "C" },
-    { operator: "=" },
-  ];
+  const operators = ["+", "-", "*", "/"];
   const [number, setNumber] = useState("");
+  const [result, setResult] = useState("");
 
   const numberOperation = (element) => {
     console.log(element.value);
-    console.log(element);
-
-    if (element.value === "C") {
-      setNumber("");
-    } else if (element.value === "=") {
-      console.log(number);
-      setNumber(eval(number));
-    } else {
-      setNumber(number + element.value);
+    console.log(operators);
+    if (
+      (operators.includes(element.value) && number === "") ||
+      (operators.includes(element.value) &&
+        operators.includes(number.toString().slice(-1)))
+    ) {
+      console.log(operators);
+      return;
+    }
+    setNumber(number + element.value);
+    if (!operators.includes(element.value)) {
+      setResult(eval(number + element.value).toString( ))
     }
   };
 
   return (
     <div className="wraper-calculator">
-      <ShowNumbers number={number} />
+      <ShowNumbers number={result} />
       <div className="wraper-operators">
         {operators.map((element, index) => (
           <NumberOperator
             key={index}
-            value={element.operator}
+            value={element}
             numberOperation={numberOperation}
           />
         ))}
+        <button className="numberOperator" onClick={() => setNumber("")}>
+          C
+        </button>
+        <button
+          className="numberOperator"
+          onClick={() => {
+            setNumber(eval(number));
+          }}
+        >
+          =
+        </button>
       </div>
       <div className="wrapper-numbers">
         {numberList.map((element) => (
